@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
+</head>
+<body>
+
+<div class="rendered-form">
+    <form method="post" action="/insert">
+    <div class="nice-form-group">
+        <label for="name" class="formbuilder-text-label">Name</label>
+        <small>Add your full name</small>
+        <input type="text" placeholder="Name" class="form-control" name="name" access="false" id="name">
+    </div>
+    <div class="nice-form-group">
+        <label for="address_1" class="formbuilder-text-label">Address</label>
+        <input type="text" class="form-control" name="address_1" access="false" id="address_1">
+    </div>
+    <div class="nice-form-group">
+        <label for="address_2" class="formbuilder-text-label">Address&nbsp;</label>
+        <input type="text" class="form-control" name="address_2" access="false" id="address_2">
+    </div>
+    <div class="nice-form-group">
+        <label for="city" class="formbuilder-text-label">City</label>
+        <input type="text" class="form-control" name="city" access="false" id="city">
+    </div>
+    <div class="nice-form-group">
+        <label for="state" class="formbuilder-text-label">State</label>
+        <input type="text" class="form-control" name="state" access="false" id="state">
+    </div>
+    <div class="nice-form-group">
+        <label for="postcode" class="formbuilder-text-label">postcode</label>
+        <input type="text" class="form-control" name="postcode" access="false" id="postcode">
+    </div>
+    <div class="nice-form-group">
+        <label for="email" class="formbuilder-text-label">email</label>
+        <input type="text" class="form-control" name="email" access="false" id="email">
+    </div>
+    <div class="nice-form-group">
+        <label for="phone" class="formbuilder-text-label">phone</label>
+        <input type="text" class="form-control" name="phone" access="false" id="phone">
+    </div>
+    <div class="nice-form-group">
+        <label for="dob" class="formbuilder-date-label">DOB</label>
+        <input type="date" class="form-control" name="dob" access="false" id="dob">
+    </div>
+    <div class="nice-form-group">
+        <label for="locations" class="formbuilder-select-label">I want to help at:</label>
+        <select class="form-control" name="locations" multiple="true" id="locations">
+            <option value="Burrum Heads" selected="true" id="locations-0">Burrum Heads</option>
+            <option value="Hervey Bay" id="locations-1">Hervey Bay</option>
+            <option value="Howard" id="locations-2">Howard</option>
+            <option value="Maryborough" id="locations-3">Maryborough</option>
+            <option value="Tiaro" id="locations-4">Tiaro</option>
+        </select>
+    </div>
+    <div class="nice-form-group">
+        <button type="submit" class="btn-default btn" name="submit" access="false" style="default" id="submit">Submit</button>
+    </div>
+            </form>
+</div>
+<select class="form-control" name="locations" multiple="true" id="locations_auto">
+{% for location in locations %}
+    <option value="{{location[0]}}" >{{location[1]}}</option>
+
+{% endfor %}
+</select>
+</body>
+</html>
